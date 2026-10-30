@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- Говорим браузеру, что это страница на русском языке -->
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Чтобы сайт красиво выглядел на телефоне -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fffaf8">
+  <!-- Иконка во вкладке браузера -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23d6283a'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white' font-family='serif'%3EП%3C/text%3E%3C/svg%3E">
+  <!-- Главное фото начинает грузиться сразу -->
+  <link rel="preload" as="image" href="images/hero.jpg">
+  <title>Преображение — маникюр и красота</title>
+  <meta name="description" content="Салон «Преображение»: маникюр, педикюр, дизайн ногтей, стрижки. Запишитесь онлайн.">
+
+  <!-- Подключаем красивые шрифты из Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Подключаем файл со стилями (внешний вид) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Если JavaScript выключен — всё равно показываем контент -->
+  <noscript><style>.reveal,.anim-load,.hero h1 .ch{opacity:1!important;transform:none!important;filter:none!important}.preloader{display:none}</style></noscript>
+</head>
+<body>
+
+  <!-- Заставка при загрузке (исчезает сама) -->
+  <div class="preloader" id="preloader">
+    <span class="pre-logo">Преображение</span>
+    <span class="pre-line"></span>
+  </div>
+
+  <!-- Полоска, показывающая, насколько прокручена страница -->
+  <div class="progress" id="progress"></div>
+
+  <!-- Мягкое розовое свечение, которое ездит за мышкой (только на компьютере) -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ===== ШАПКА С МЕНЮ ===== -->
+  <header class="header" id="header">
+    <a href="#home" class="logo">Преображение</a>
+
+    <!-- Кнопка-бургер (видна только на телефоне) -->
+    <button class="burger" id="burger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#home">Главная</a>
+      <a href="#services">Услуги</a>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#booking">Запись</a>
+    </nav>
+  </header>
+
+  <!-- ===== 1. ГЛАВНАЯ (здесь только ОДНО фото) ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div> <!-- фото ставится в стилях, это hero.jpg -->
+    <canvas class="sparkles" id="sparkles"></canvas> <!-- летающие искорки -->
+    <div class="hero-content" id="heroContent">
+      <p class="hero-small anim-load" style="--d:2.2s">Салон красоты</p>
+      <h1 id="heroTitle">Преображение</h1>
+      <p class="hero-sub anim-load" style="--d:3.2s">Маникюр и уход за красотой</p>
+      <div class="hero-actions anim-load" style="--d:3.5s">
+        <a href="#booking" class="btn magnetic">Записаться</a>
+        <a href="#portfolio" class="btn btn-ghost magnetic">Наши работы</a>
+      </div>
+    </div>
+    <a href="#services" class="scroll-down" aria-label="Вниз">↓</a>
+  </section>
+
+  <!-- Бегущая строка -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Маникюр ✦ Педикюр ✦ Дизайн ногтей ✦ Наращивание ✦ Стрижки ✦ Укладка ✦ </span>
+      <span>Маникюр ✦ Педикюр ✦ Дизайн ногтей ✦ Наращивание ✦ Стрижки ✦ Укладка ✦ </span>
+    </div>
+  </div>
+
+  <!-- ===== 2. УСЛУГИ ===== -->
+  <section class="section" id="services">
+    <h2 class="title reveal">Услуги</h2>
+    <p class="subtitle reveal">Что мы делаем для вас</p>
+
+    <div class="cards">
+
+      <!-- Карточка 1 -->
+      <div class="card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3c2 3 4 5 4 8a4 4 0 0 1-8 0c0-3 2-5 4-8z"/><path d="M8 20h8"/></svg>
+        </div>
+        <h3>Маникюр с покрытием</h3>
+        <p>Гель-лак, стойкий цвет и аккуратная форма.</p>
+        <span class="price">от 1100 ₽</span>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+        </div>
+        <h3>Классический маникюр</h3>
+        <p>Уход за ногтями и кожей рук без покрытия.</p>
+        <!-- ЦЕНА ПРИМЕРНАЯ — замени на свою -->
+        <span class="price">от 700 ₽</span>
+      </div>
+
+      <!-- Карточка 3 -->
+      <div class="card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M5 15c2-1 4 1 7 0s5-1 7 0"/><path d="M5 19c2-1 4 1 7 0s5-1 7 0"/><path d="M9 4c0 4 1 7 3 8 2-1 3-4 3-8"/></svg>
+        </div>
+        <h3>Педикюр</h3>
+        <p>Комфортный уход за стопами и покрытие.</p>
+        <!-- ЦЕНА ПРИМЕРНАЯ — замени на свою -->
+        <span class="price">от 1500 ₽</span>
+      </div>
+
+      <!-- Карточка 4 -->
+      <div class="card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg>
+        </div>
+        <h3>Дизайн ногтей</h3>
+        <p>Градиент, блёстки, рисунки и стразы.</p>
+        <!-- ЦЕНА ПРИМЕРНАЯ — замени на свою -->
+        <span class="price">от 200 ₽</span>
+      </div>
+
+      <!-- Карточка 5 -->
+      <div class="card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M4 20l6-6"/><path d="M10 14l8-10 2 2-10 8z"/></svg>
+        </div>
+        <h3>Наращивание</h3>
+        <p>Длина и форма вашей мечты: миндаль, квадрат.</p>
+        <!-- ЦЕНА ПРИМЕРНАЯ — замени на свою -->
+        <span class="price">от 2500 ₽</span>
+      </div>
+
+      <!-- Карточка 6 -->
+      <div class="card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="M8.5 8.5L20 18"/><path d="M8.5 15.5L20 6"/></svg>
+        </div>
+        <h3>Стрижка и укладка</h3>
+        <p>Парикмахерские услуги для женщин и мужчин.</p>
+        <!-- ЦЕНА ПРИМЕРНАЯ — замени на свою -->
+        <span class="price">от 800 ₽</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== КАК ПРОХОДИТ ЗАПИСЬ (3 шага) ===== -->
+  <section class="section steps-section">
+    <h2 class="title reveal">Всё просто</h2>
+    <p class="subtitle reveal">Три шага до красивых ногтей</p>
+    <div class="steps">
+      <div class="step reveal"><span class="num">01</span><h3>Оставляете заявку</h3><p>Выбираете услугу и удобную дату на сайте.</p></div>
+      <div class="step reveal"><span class="num">02</span><h3>Мы связываемся</h3><p>Подтверждаем время и отвечаем на вопросы.</p></div>
+      <div class="step reveal"><span class="num">03</span><h3>Приходите и преображаетесь</h3><p>Уютная атмосфера и результат, которым хочется делиться.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== 3. ПОРТФОЛИО (все остальные фото) ===== -->
+  <section class="section section-soft" id="portfolio">
+    <h2 class="title reveal">Портфолио</h2>
+    <p class="subtitle reveal">Наши работы</p>
+
+    <!-- Лента движется сама; можно потянуть мышкой/пальцем. Новое фото = ещё один <figure> -->
+    <div class="strip reveal" id="strip">
+      <div class="strip-track" id="stripTrack">
+        <figure class="work" data-full="images/work1.jpg">
+          <img src="images/work1.jpg" alt="Красный маникюр" loading="lazy" draggable="false">
+          <figcaption>Классический красный</figcaption>
+        </figure>
+        <figure class="work" data-full="images/work6.jpg">
+          <img src="images/work6.jpg" alt="Окрашивание волос с красными кончиками" loading="lazy" draggable="false">
+          <figcaption>Красные акценты в волосах</figcaption>
+        </figure>
+        <figure class="work" data-full="images/work2.jpg">
+          <img src="images/work2.jpg" alt="Синий градиент" loading="lazy" draggable="false">
+          <figcaption>Синий градиент</figcaption>
+        </figure>
+        <figure class="work" data-full="images/work3.jpg">
+          <img src="images/work3.jpg" alt="Нежно-розовый маникюр с сердечком" loading="lazy" draggable="false">
+          <figcaption>Нежность и сердечко</figcaption>
+        </figure>
+        <figure class="work" data-full="images/work4.jpg">
+          <img src="images/work4.jpg" alt="Градиент с блёстками" loading="lazy" draggable="false">
+          <figcaption>Блёстки и градиент</figcaption>
+        </figure>
+        <figure class="work" data-full="images/work5.jpg">
+          <img src="images/work5.jpg" alt="Розовый френч с блёстками" loading="lazy" draggable="false">
+          <figcaption>Розовый френч</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="strip-hint reveal">Потяните ленту или нажмите на фото</p>
+  </section>
+
+  <!-- ===== ЦИФРЫ (числа плавно «набегают») ===== -->
+  <section class="stats">
+    <div class="stat reveal"><b class="count" data-to="4.7" data-dec="1">0</b><span>рейтинг на Яндексе</span></div>
+    <div class="stat reveal"><b class="count" data-to="94">0</b><span>оценки клиентов</span></div>
+    <div class="stat reveal"><b class="count" data-to="60">0</b><span>отзывов</span></div>
+    <div class="stat reveal"><b>от <span class="count" data-to="1100">0</span> ₽</b><span>маникюр с покрытием</span></div>
+  </section>
+
+  <!-- ===== 4. ЗАПИСЬ ===== -->
+  <section class="section" id="booking">
+    <h2 class="title reveal">Запись</h2>
+    <p class="subtitle reveal">Оставьте заявку — мы свяжемся с вами</p>
+
+    <!-- СЮДА ВСТАВИТЬ ПОЧТУ: см. файл script.js, переменная FORM_URL -->
+    <form class="form reveal" id="bookingForm">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Телефон" required>
+      <select name="service" required>
+        <option value="" disabled selected>Выберите услугу</option>
+        <option>Маникюр с покрытием</option>
+        <option>Классический маникюр</option>
+        <option>Педикюр</option>
+        <option>Дизайн ногтей</option>
+        <option>Наращивание</option>
+        <option>Стрижка и укладка</option>
+      </select>
+      <input type="date" name="date">
+      <textarea name="comment" rows="3" placeholder="Комментарий (необязательно)"></textarea>
+      <button type="submit" class="btn magnetic">Записаться</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </section>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <footer class="footer">
+    <h3>Преображение</h3>
+    <p>★ Рейтинг 4.7 · 94 оценки</p>
+    <!-- ЗАМЕНИ на настоящие адрес и телефон -->
+    <p>Адрес: укажите адрес салона</p>
+    <p>Телефон: +7 (000) 000-00-00</p>
+    <small>© 2026 Преображение. Все права защищены.</small>
+  </footer>
+
+  <!-- Окно для просмотра фото на весь экран -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose" aria-label="Закрыть">×</button>
+    <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Назад">‹</button>
+    <img src="" alt="" id="lbImg">
+    <button class="lb-arrow lb-next" id="lbNext" aria-label="Вперёд">›</button>
+  </div>
+
+  <!-- Плавающая кнопка «Записаться» и кнопка «наверх» -->
+  <a href="#booking" class="float-btn" id="floatBtn">Записаться</a>
+  <button class="to-top" id="toTop" aria-label="Наверх">↑</button>
+
+  <!-- Подключаем файл с «оживлением» сайта -->
+  <script src="script.js" defer></script>
+</body>
+</html>
